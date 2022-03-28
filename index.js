@@ -1,3 +1,5 @@
+const path = require("path")
+
 /*
   ---- EXPRESS ----
   We are using Express framework for running our 
@@ -24,6 +26,7 @@ app.use(bodyParser.json());
 // app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+// app.use(favicon(path.join(__dirname,'public','resources','favicon.ico')));
 
 // ------- SOURCE -------
 
@@ -46,6 +49,26 @@ app.get("/hello/manka", (req, res) => {
 
 app.get("/manka", (req, res) => {
   res.render("manka.ejs")
+})
+
+app.get("/taylorswift", (req, res) => {
+  res.render("taylor.ejs")
+})
+
+app.get("/consoletest", (req, res) => {
+  res.render("console.ejs")
+})
+
+app.get("/riddle1test", (req,res) => {
+  res.render("riddle1.ejs")
+})
+
+app.get("/identify1test", (req, res) => {
+  res.render("identify1.ejs")  
+})
+
+app.get("/scrolltest", (req, res) => {
+  res.render("scrolltest.ejs")
 })
 
 app.get("*", (req, res) => {

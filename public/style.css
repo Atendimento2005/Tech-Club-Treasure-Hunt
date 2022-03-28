@@ -53,4 +53,9 @@ body {
   color: #FFFFFF;
 }
 
+.image-container{
+  padding: 1.8vw;
+  background-color: #FFFFFF;
+  border-radius: 4vw;
+}
 
