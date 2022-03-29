@@ -8,7 +8,7 @@ const path = require("path")
 const express = require("express");
 const app = express();
 const server = require("http").Server(app);
-const PORT = 80;
+const PORT = process.env.PORT || 80;
 /*
   ---- Misc. dependency imports followed -----
 */
@@ -20,7 +20,7 @@ const req = require("express/lib/request");
 */
 
 app.set("view engine", "ejs");
-app.use(express.static("public"));
+app.use("/static", express.static("public"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 // app.use(express.static("public"));
@@ -42,10 +42,9 @@ app.get("/ihavenoideawhatimdoinghere", (req, res) => {
   res.render("routes2.ejs");
 })
 
-
-app.get("/hello/manka", (req, res) => {
-  res.redirect("https://getbootstrap.com/docs/5.1/layout/grid/");
-});
+app.get("/rt3", (req, res) => {
+  res.render("routes3.ejs")
+})
 
 app.get("/manka", (req, res) => {
   res.render("manka.ejs")
@@ -69,6 +68,10 @@ app.get("/identify1test", (req, res) => {
 
 app.get("/scrolltest", (req, res) => {
   res.render("scrolltest.ejs")
+})
+
+app.get("/mathtest", (req,res) => {
+  res.render("math2.ejs")
 })
 
 app.get("*", (req, res) => {

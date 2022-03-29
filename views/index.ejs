@@ -1,3 +1,4 @@
+<script async src="/static/scripts/manka.js"></script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,8 +10,25 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="resources/logo.png">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="icon" href="/static/resources/logo.png">
+    <style>
+      body {
+        align-items: center;
+        background-color: var(--bg-body);
+        background-image: var(--bg-body-image);
+        display: flex;
+        height: 100vh;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+        transition: background-color 2s cubic-bezier(0.19, 1, 0.22, 1);
+      }
+
+      body.hover {
+        background-color: var(--bg-body-hover);
+      }
+    </style>
 </head>
 <body>
     <div id="container" class="container-fluid">
@@ -27,22 +45,33 @@
             <path d="M208.522 208.954L250.046 137.67C250.56 136.788 251.377 136.124 252.345 135.802C252.773 135.659 253.221 135.586 253.672 135.586H282.665C282.926 135.586 283.187 135.612 283.444 135.663C285.301 136.035 286.637 137.665 286.637 139.559V140.096C286.637 140.894 286.431 141.678 286.038 142.373L277.331 157.779L265.877 178.539L254.423 198.584L248.311 209.586C247.618 210.832 246.71 211.945 245.627 212.873C243.45 214.739 240.676 215.765 237.808 215.765H212.186C211.256 215.765 210.352 215.464 209.608 214.906C208.527 214.095 207.89 212.822 207.89 211.47V211.293C207.89 210.471 208.108 209.664 208.522 208.954Z" fill="#D4AF37" stroke="#D4AF37"/>
             <path d="M208.522 208.954L250.046 137.67C250.56 136.788 251.377 136.124 252.345 135.802C252.773 135.659 253.221 135.586 253.672 135.586H282.665C282.926 135.586 283.187 135.612 283.444 135.663C285.301 136.035 286.637 137.665 286.637 139.559V140.096C286.637 140.894 286.431 141.678 286.038 142.373L277.331 157.779L265.877 178.539L254.423 198.584L248.311 209.586C247.618 210.832 246.71 211.945 245.627 212.873C243.45 214.739 240.676 215.765 237.808 215.765H212.186C211.256 215.765 210.352 215.464 209.608 214.906C208.527 214.095 207.89 212.822 207.89 211.47V211.293C207.89 210.471 208.108 209.664 208.522 208.954Z" fill="#D4AF37" stroke="#D4AF37"/>
         </svg>
-        <div class="heading">Welcome To The Tech Club<br/>Treasure Hunt</div> 
-        <div class="button-container" id="container">
-            <button class="learn-more">
-              <span class="circle" aria-hidden="true">
-                <span class="icon arrow"></span>
-              </span>
-              <span class="button-text">Learn More</span>
-            </button>
-          </div>       
+        <div class="heading" style="padding-bottom: 40px;">Welcome To The Tech Club<br/>Treasure Hunt</div> 
+        <div class="button">
+          <a href="/start">
+            Start Now 
+            <span class="shift">›</span>
+          </a>
+          <div class="mask"></div>
+        </div>  
     </div>
 </body>
 </html>
 
-<script src="scripts/logo.js"></script>
-<script src="scripts/logo.js"></script>
-<script src="scripts/logo.js"></script>
-<script src="scripts/logo.js"></script>
-<script src="scripts/logo.js"></script>
-<script src="scripts/manka.js"></script>
+<script src="/static/scripts/logo.js"></script>
+<script src="/static/scripts/logo.js"></script>
+<script src="/static/scripts/logo.js"></script>
+<script src="/static/scripts/logo.js"></script>
+<script src="/static/scripts/logo.js"></script>
+<script>
+  const body = document.body;
+  const btn = document.querySelectorAll('.button')[0];
+
+  btn.addEventListener('mouseenter', () => {
+    body.classList.add('hover');
+  });
+
+  btn.addEventListener('mouseleave', () => {
+    body.classList.remove('hover');
+  });
+</script>
+
