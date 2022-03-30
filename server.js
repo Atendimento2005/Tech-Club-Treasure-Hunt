@@ -63,7 +63,7 @@ app.get("/riddle1test", (req,res) => {
 })
 
 app.get("/identify1test", (req, res) => {
-  res.render("identify1.ejs")  
+  res.render("identify1.ejs")
 })
 
 app.get("/scrolltest", (req, res) => {

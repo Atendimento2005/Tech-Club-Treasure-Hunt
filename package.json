@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "node server.js",
+    "dev": "pm2-dev server.js",
     "start": "node server.js"
   },
   "keywords": [],
