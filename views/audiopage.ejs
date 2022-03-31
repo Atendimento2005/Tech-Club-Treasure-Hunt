@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Club Treasure Hunt</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="icon" href="/static/resources/logo.png">
+    <style>
+        .icon{
+            width: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand navbar-light bg-light">
+        <a href="#" class="navbar-brand">
+            <img src="/static/resources/revlogotext.png" alt="logo" class="logo">
+        </a>
+    </nav>
+    <main>
+        <div id="container" class="container-fluid">
+            <audio id="audio" src="/static/resources/audioOP.mp3" loop="loop"></audio>
+            <div id="player" style="display: flex; justify-content: space-around; align-items: center; width: 180px;">
+                <div id="play" class="icon">
+                    <svg width="22" height="28" viewBox="0 0 22 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 0V28L22 14L0 0Z" fill="#D4AF37" />
+                    </svg>
+                </div>
+                <div id="mute" class="icon">
+                    <svg width="18" height="32" viewBox="0 0 18 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 10V22H8L18 32V0L8 10H0Z" fill="#D4AF37" />
+                    </svg>       
+                </div>
+                <div id="download" class="icon">
+                    <a href="/static/resources/audioOP.mp3" download>
+                        <svg width="28" height="34" viewBox="0 0 28 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M28 12H20V0H8V12H0L14 26L28 12ZM0 30V34H28V30H0Z" fill="#D4AF37" />
+                        </svg>
+                    </a>
+                </div>
+            <div class="heading" style="position: absolute; right: 0; bottom: 0; margin-right: 10px; font-size: 20px;">/finalpage/</div>
+            </div>      
+        </div>
+    </main>
+</body>
+</html>
+
+<script src="/static/scripts/logo.js"></script>
+<script src="/static/scripts/logo.js"></script>
+<script src="/static/scripts/logo.js"></script>
+<script src="/static/scripts/logo.js"></script>
+<script>
+    addEventListener("DOMContentLoaded", () => {
+        const play = document.getElementById("play")
+        const mute = document.getElementById("mute")
+        const download = document.getElementById("download")
+        const audio = document.getElementById("audio")
+        let paused = true
+        let muted = false
+        play.onclick = () => {
+            if(paused){
+                play.innerHTML = `<svg width="24" height="28" viewBox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 28H8V0H0V28ZM16 0V28H24V0H16Z" fill="#D4AF37"/>
+                                    </svg>
+                                    `
+                audio.play()
+            }else{
+                play.innerHTML = `<svg width="22" height="28" viewBox="0 0 22 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0 0V28L22 14L0 0Z" fill="#D4AF37" />
+                                    </svg>`
+                audio.pause()
+            }
+            paused = !paused
+        }
+
+        mute.onclick = () => {
+            if(muted){
+                mute.innerHTML = `<svg width="18" height="32" viewBox="0 0 18 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0 10V22H8L18 32V0L8 10H0Z" fill="#D4AF37" />
+                                    </svg> `
+                audio.muted = false
+            }else{
+                mute.innerHTML = `<svg width="34" height="32" viewBox="0 0 34 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 10V22H8L18 32V0L8 10H0Z" fill="#D4AF37"/>
+                                    <path d="M33.6631 20.0769C34.1123 20.5264 34.1123 21.2257 33.6631 21.6753C33.4386 21.9001 33.1641 22 32.8647 22C32.5653 22 32.2908 21.9001 32.0662 21.6753L27.5 17.1047L22.9338 21.6753C22.7092 21.9001 22.4347 22 22.1353 22C21.8359 22 21.5614 21.9001 21.3369 21.6753C20.8877 21.2257 20.8877 20.5264 21.3369 20.0769L25.9031 15.5062L21.3369 10.9356C20.8877 10.4861 20.8877 9.78674 21.3369 9.33718C21.786 8.88761 22.4846 8.88761 22.9338 9.33718L27.5 13.9078L32.0662 9.33718C32.5154 8.88761 33.214 8.88761 33.6631 9.33718C34.1123 9.78674 34.1123 10.4861 33.6631 10.9356L29.0969 15.5062L33.6631 20.0769Z" fill="#D4AF37"/>
+                                    </svg>`
+                audio.muted = true
+            }
+
+            muted = !muted
+        }
+    })
+</script>
